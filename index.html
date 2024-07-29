@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="ico.png">
+    <link rel="icon" type="image/png" href="img/key.png">
     <title>Login searchProduct</title>
     <style>
         body {
@@ -13,7 +13,6 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            background-image: url('wallaper.jpg'); /* Sostituisci con il percorso della tua immagine */
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -21,17 +20,15 @@
         }
 
         .login-container {
-    position: absolute; /* Posiziona il riquadro in modo assoluto */
-    top: 170px; /* Distanza dal bordo superiore */
-    left: 80px; /* Distanza dal bordo destro */
-    max-width: 400px;
-    width: 100%;
-    padding: 20px;
-    background: rgba(71, 212, 244, 0.359);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    border-radius: 15px;
-}
+            position: absolute; /* Posiziona il riquadro in modo assoluto */
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background: rgb(255, 255, 255);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 15px;
+        }
         
         h1 {
             margin-bottom: 20px;
@@ -68,7 +65,7 @@
         }
     </style>
 </head>
-<body>
+<body id="body">
     <div class="login-container">
         <h1>Login</h1>
         <form id="loginForm">
@@ -78,5 +75,21 @@
         <p id="errorMessage" class="error"></p>
     </div>
     <script src="login.js"></script>
+    <script>
+        // Array di percorsi delle immagini di sfondo
+        const images = [
+            'img/1.jpg',
+            'img/2.jpg',
+            'img/3.jpg',
+            'img/4.jpg',
+            'img/5.jpg'
+        ];
+
+        // Seleziona casualmente un'immagine
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+        // Imposta l'immagine di sfondo del body
+        document.getElementById('body').style.backgroundImage = `url('${randomImage}')`;
+    </script>
 </body>
 </html>
