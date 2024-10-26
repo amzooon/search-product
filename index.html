@@ -74,7 +74,6 @@
         </form>
         <p id="errorMessage" class="error"></p>
     </div>
-    <script src="login.js"></script>
     <script>
         // Array di percorsi delle immagini di sfondo
         const images = [
@@ -90,6 +89,32 @@
 
         // Imposta l'immagine di sfondo del body
         document.getElementById('body').style.backgroundImage = `url('${randomImage}')`;
+
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        // La password corretta
+        const password = "OTYzMjU4NzQx"; 
+
+        // L'URL di reindirizzamento
+        const redirectUrl = "aHR0cHM6Ly9hbXpvb29uLmdpdGh1Yi5pby9zZWFyY2gtcHJvZHVjdC9pbmRleC02Z3RyNTQ4NTY0Z3RyczU4NGRzNjV0NXI0ZDY1dHI4NjU0ZXJzODl6czY0OHQ1NjRkZ3RyNTU4NjU0NjU0ZTY1NGVydzg5NjQ3M3c4Njk1NDN3YTg2YTN3V0RBRVNHWVVBRVc1RTVFUlQ1RUEuaHRtbA==";
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const passwordInput = document.getElementById('password').value;
+
+            // Converte la password inserita dall'utente
+            const passwordInputBase64 = btoa(passwordInput);
+
+            // Confronta la password codificata
+            if (passwordInputBase64 === password) {
+                localStorage.setItem('authenticated', 'true');
+                // Decodifica l'URL di reindirizzamento e reindirizza l'utente
+                window.location.href = atob(redirectUrl);
+            } else {
+                errorMessage.textContent = "Password errata. Riprova.";
+            }
+        });
     </script>
 </body>
 </html>
